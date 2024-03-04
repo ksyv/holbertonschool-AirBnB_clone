@@ -16,9 +16,20 @@ class BaseModel:
         - to_json()"""
     def __init__(self, *args, **kwargs):
         """init instance attributes"""
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = self.created_at
+        if not kwargs or len(kwargs) == 0:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = self.created_at
+        else:
+            for key, value in kwargs.items():
+                if key == "__class__":
+                    pass
+                if key == "created_at":
+                    value = value.isoformat()
+                elif key == "updated_at":
+                    value = value.isoformat()
+                else:
+                    setattr(self, key, value)
 
     def __str__(self):
         """define the string representation of class"""
