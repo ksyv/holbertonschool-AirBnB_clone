@@ -2,7 +2,7 @@
 """This modul contain the base class for all models"""
 # this is the base class of all our models
 import uuid
-from datetime import date, datetime
+from datetime import datetime
 
 
 class BaseModel:
