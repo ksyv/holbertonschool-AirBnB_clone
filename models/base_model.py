@@ -22,13 +22,12 @@ class BaseModel:
             self.updated_at = self.created_at
         else:
             for key, value in kwargs.items():
-                if key == "__class__":
-                    pass
+                
                 if key == "created_at":
                     value = datetime.fromisoformat(value)
                 elif key == "updated_at":
                     value = datetime.fromisoformat(value)
-                else:
+                if key != "__class__":
                     setattr(self, key, value)
 
     def __str__(self):
