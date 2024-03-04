@@ -22,7 +22,7 @@ class BaseModel:
 
     def __str__(self):
         """define the string representation of class"""
-        return (f"[<class name>] (<self.id>) <self.__dict__>")
+        return (f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}")
 
     def save(self):
         """updates updated_at with the current datetime"""
@@ -33,9 +33,9 @@ class BaseModel:
         of __dict__ of the instance, datetime in iso format"""
         dictionary = {"__class__": self.__class__.__name__}
         for key, value in self.__dict__.items():
-            if key is "created_at":
+            if key == "created_at":
                 dictionary[key] = value.isoformat()
-            elif key is "updated_at":
+            elif key == "updated_at":
                 dictionary[key] = value.isoformat()
             else:
                 dictionary[key] = value
