@@ -28,3 +28,15 @@ class BaseModel:
         """updates updated_at with the current datetime"""
         self.updated_at = datetime.now()
 
+    def to_dict(self):
+        """ returns a dictionary containing all keys/values
+        of __dict__ of the instance, datetime in iso format"""
+        dictionary = {"__class__": self.__class__.__name__}
+        for key, value in self.__dict__.items():
+            if key is "created_at":
+                dictionary[key] = value.isoformat()
+            elif key is "updated_at":
+                dictionary[key] = value.isoformat()
+            else:
+                dictionary[key] = value
+        return dictionary
