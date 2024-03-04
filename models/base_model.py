@@ -25,9 +25,9 @@ class BaseModel:
                 if key == "__class__":
                     pass
                 if key == "created_at":
-                    value = value.isoformat()
+                    value = datetime.fromisoformat(value)
                 elif key == "updated_at":
-                    value = value.isoformat()
+                    value = datetime.fromisoformat(value)
                 else:
                     setattr(self, key, value)
 
