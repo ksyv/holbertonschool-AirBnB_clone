@@ -22,7 +22,6 @@ class BaseModel:
             self.updated_at = self.created_at
         else:
             for key, value in kwargs.items():
-                
                 if key == "created_at":
                     value = datetime.fromisoformat(value)
                 elif key == "updated_at":
