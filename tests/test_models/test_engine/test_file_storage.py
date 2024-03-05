@@ -7,12 +7,11 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 
 
-
 class TestFileStorage(unittest.TestCase):
     """Test case for the FileStorage class"""
     def test_Storage_initializes(self):
         self.assertEqual(type(models.storage), FileStorage)
-    
+
     def test_FileStorageWithoutArgs(self):
         self.assertEqual(type(FileStorage()), FileStorage)
 
