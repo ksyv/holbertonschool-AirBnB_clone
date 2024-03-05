@@ -20,7 +20,7 @@ class BaseModel:
         if not kwargs or len(kwargs) == 0:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
-            self.updated_at = self.created_at
+            self.updated_at = datetime.now()
             storage.new(self)
         else:
             for key, value in kwargs.items():
