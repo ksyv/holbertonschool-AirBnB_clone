@@ -55,6 +55,13 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn("'created_at': " + dt_repr, bmstr)
         self.assertIn("'updated_at': " + dt_repr, bmstr)
 
+    def test_save(self):
+        model = BaseModel()
+        old_updated_at = model.updated_at
+        time.sleep(0.001)
+        model.save()
+        self.assertNotEqual(old_updated_at, model.updated_at)
+
 
 if __name__ == '__main__':
     unittest.main()
