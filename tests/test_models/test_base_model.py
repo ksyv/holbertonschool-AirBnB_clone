@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """unittest for base_model"""
 import unittest
+import time
 from datetime import datetime
 from models.base_model import BaseModel
 
@@ -24,6 +25,24 @@ class TestBaseModel(unittest.TestCase):
         model1 = BaseModel()
         model2 = BaseModel()
         self.assertNotEqual(model1.id, model2.id)
+
+    def test_IfBadIdInArg(self):
+        model1 = BaseModel()
+        try:
+            model2 = BaseModel(id= model1.id)
+        except TypeError:
+            self.fail("BaseModel raised TypeError unexpectedly!")
+
+
+    def test_init_with_arguments(self):
+        """Test the __init__ method with valid arguments."""
+        my_model = BaseModel(id='123', created_at='2022-01-01T00:00:00',
+                             updated_at='2022-01-01T00:00:00')
+        self.assertEqual(my_model.id, '123')
+        self.assertEqual(my_model.created_at,
+                         datetime.fromisoformat('2022-01-01T00:00:00'))
+        self.assertEqual(my_model.updated_at,
+                         datetime.fromisoformat('2022-01-01T00:00:00'))
 
 
 if __name__ == '__main__':
