@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import cmd
 """Console Module"""
+import cmd
 
 
 class HBNBCommand(cmd.Cmd):
