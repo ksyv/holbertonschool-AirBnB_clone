@@ -30,6 +30,6 @@ class FileStorage():
             with open(self.__file_path, "r", encoding="utf-8") as file:
                 instance = json.load(file)
                 for key, value in instance.items():
-                    self.__obj[key] = value
+                    self.__objects[key] = value
         except FileNotFoundError:
             pass
