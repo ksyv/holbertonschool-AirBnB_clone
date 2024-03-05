@@ -16,6 +16,12 @@ class HBNBCommand(cmd.Cmd):
         'EOF command to exit the program\n'
         return True
 
+    def emptyline(self):
+        """
+        Handles empty line
+        """
+        pass
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
