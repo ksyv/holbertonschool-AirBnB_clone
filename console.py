@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 import cmd
+"""Console Module"""
 
 
 class HBNBCommand(cmd.Cmd):
+    """Console class"""
     prompt = '(hbnb) '
 
     # Basic command
