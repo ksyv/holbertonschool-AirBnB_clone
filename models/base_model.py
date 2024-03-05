@@ -33,7 +33,10 @@ class BaseModel:
 
     def __str__(self):
         """define the string representation of class"""
-        return (f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}")
+        name = self.__class__.__name__
+        id = self.id
+        dicto = self.__dict__
+        return '[{}] ({}) {}'.format(name, id, dicto)
 
     def save(self):
         """updates updated_at with the current datetime"""
