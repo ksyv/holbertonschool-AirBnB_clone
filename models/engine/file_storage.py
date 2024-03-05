@@ -3,7 +3,6 @@
 import json
 
 
-
 class FileStorage():
     """serialize instances to a JSON file and deserialise
     JSON file to instances"""
