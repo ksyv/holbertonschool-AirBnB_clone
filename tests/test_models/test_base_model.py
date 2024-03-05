@@ -62,6 +62,21 @@ class TestBaseModel(unittest.TestCase):
         model.save()
         self.assertNotEqual(old_updated_at, model.updated_at)
 
+    def test_to_dict_with_additional_attributes(self):
+        """Test the to_dict method with additional attributes."""
+        my_model = BaseModel()
+        my_model.name = 'John'
+        my_model.age = 25
+        expected_dict = {
+            'id': my_model.id,
+            'created_at': my_model.created_at.isoformat(),
+            'updated_at': my_model.updated_at.isoformat(),
+            '__class__': 'BaseModel',
+            'name': 'John',
+            'age': 25
+        }
+        self.assertEqual(my_model.to_dict(), expected_dict)
+
 
 if __name__ == '__main__':
     unittest.main()
