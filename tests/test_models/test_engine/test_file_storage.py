@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """unittest for file_storage"""
 import unittest
-from models.engine.file_storage import FileStorage
+import os
 import models
-import json
+from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
+
 
 
 class TestFileStorage(unittest.TestCase):
@@ -24,7 +26,14 @@ class TestFileStorage(unittest.TestCase):
     def test_FileStorageObject(self):
         self.assertEqual(dict, type(FileStorage._FileStorage__objects))
 
-
+    def test_new(self):
+        """Test the 'new' method of the storage object."""
+        storage = FileStorage()
+        new_model = BaseModel()
+        storage.new(new_model)
+        all_objs = storage.all()
+        self.assertIn(f"{new_model.__class__.__name__}.{new_model.id}",
+                      all_objs)
 
 
 if __name__ == '__main__':
