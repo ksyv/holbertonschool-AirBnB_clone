@@ -1,8 +1,12 @@
 #!/usr/bin/python3
-"""unitest for base_model"""
+"""unittest for base_model"""
 import unittest
 
 
-class TestBaseModel(unittest.case):
+class TestBaseModel(unittest.Testcase):
     """Test case for the BaseModel class"""
     test = "j'en sais rien c'est pour essayer"
+
+
+if __name__ == '__main__':
+    unittest.main()
