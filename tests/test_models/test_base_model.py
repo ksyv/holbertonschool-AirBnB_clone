@@ -35,7 +35,6 @@ class TestBaseModel(unittest.TestCase):
 
 
     def test_init_with_arguments(self):
-        """Test the __init__ method with valid arguments."""
         my_model = BaseModel(id='123', created_at='2022-01-01T00:00:00',
                              updated_at='2022-01-01T00:00:00')
         self.assertEqual(my_model.id, '123')
@@ -43,6 +42,18 @@ class TestBaseModel(unittest.TestCase):
                          datetime.fromisoformat('2022-01-01T00:00:00'))
         self.assertEqual(my_model.updated_at,
                          datetime.fromisoformat('2022-01-01T00:00:00'))
+
+    def test_str_representation(self):
+        dt = datetime.today()
+        dt_repr = repr(dt)
+        bm = BaseModel()
+        bm.id = "123456"
+        bm.created_at = bm.updated_at = dt
+        bmstr = bm.__str__()
+        self.assertIn("[BaseModel] (123456)", bmstr)
+        self.assertIn("'id': '123456'", bmstr)
+        self.assertIn("'created_at': " + dt_repr, bmstr)
+        self.assertIn("'updated_at': " + dt_repr, bmstr)
 
 
 if __name__ == '__main__':
