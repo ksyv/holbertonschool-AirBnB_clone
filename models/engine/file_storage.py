@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """modul for file storage"""
 import json
-from models.base_model import BaseModel
+
 
 
 class FileStorage():
@@ -27,6 +27,7 @@ class FileStorage():
 
     def reload(self):
         """deserializes the JSON file to __objects if __file_path exists"""
+        from models.base_model import BaseModel
         try:
             with open(self.__file_path, "r", encoding="utf-8") as file:
                 instance = json.load(file)
