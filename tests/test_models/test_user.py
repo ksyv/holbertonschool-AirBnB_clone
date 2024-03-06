@@ -10,3 +10,7 @@ class TestUserClass(unittest.TestCase):
     def test_inheritance(self):
         userTest = User()
         self.assertIsInstance(userTest, BaseModel)
+
+
+if __name__ == '__main__':
+    unittest.main()
