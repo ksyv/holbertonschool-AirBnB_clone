@@ -40,6 +40,7 @@ class TestFileStorage_methods(unittest.TestCase):
 
     @classmethod
     def setUp(self):
+        self.base_model = BaseModel()
         try:
             os.rename("file.json", "tmp")
         except IOError:
@@ -64,10 +65,6 @@ class TestFileStorage_methods(unittest.TestCase):
         with self.assertRaises(TypeError):
             models.storage.all(None)
 
-    def test_reload_with_arg(self):
-        with self.assertRaises(TypeError):
-            models.storage.reload(None)
-
     def test_save_with_arg(self):
         with self.assertRaises(TypeError):
             models.storage.save(None)
@@ -87,6 +84,11 @@ class TestFileStorage_methods(unittest.TestCase):
         self.assertIn("BaseModel." + bm.id, models.storage.all().keys())
         self.assertIn(bm, models.storage.all().values())
 
+    def test_reload(self):
+        storage = FileStorage()
+        storage.reload()
+        all_objs = storage.all()
+        self.assertIn(f"{self.base_model.__class__.__name__}.{self.base_model.id}", all_objs)
 
 if __name__ == '__main__':
     unittest.main()
