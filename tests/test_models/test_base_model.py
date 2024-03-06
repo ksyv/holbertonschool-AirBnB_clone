@@ -67,6 +67,13 @@ class TestBaseModel(unittest.TestCase):
         with self.assertRaises(TypeError):
             bm.save(None)
 
+    def test_save_updates_file(self):
+        bm = BaseModel()
+        bm.save()
+        bmid = "BaseModel." + bm.id
+        with open("file.json", "r") as f:
+            self.assertIn(bmid, f.read())
+
     def test_to_dict_with_additional_attributes(self):
         """Test the to_dict method with additional attributes."""
         my_model = BaseModel()
