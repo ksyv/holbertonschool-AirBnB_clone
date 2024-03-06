@@ -62,6 +62,15 @@ class TestBaseModel(unittest.TestCase):
         model.save()
         self.assertNotEqual(old_updated_at, model.updated_at)
 
+    def test_save_with_invalid_updated_at(self):
+        """Test the save method with an invalid updated_at."""
+        my_model = BaseModel()
+        try:
+            my_model.updated_at = '2022-01-01'
+            my_model.save()
+        except ValueError:
+            self.fail("BaseModel raised ValueError unexpectedly!")
+
     def test_to_dict_with_additional_attributes(self):
         """Test the to_dict method with additional attributes."""
         my_model = BaseModel()
