@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Console Module"""
 import cmd
+import shlex
 from models.base_model import BaseModel
 from models.user import User
 from models.city import City
@@ -48,6 +49,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         else:
+            args_list = shlex.split(arg)
+            class_name = args_list[0]
             new_instance = HBNBCommand.class_dict[class_name]()
             storage.new(new_instance)
             storage.save()
