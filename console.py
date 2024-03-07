@@ -12,6 +12,10 @@ from models.user import User
 class HBNBCommand(cmd.Cmd):
     """Console class"""
     prompt = '(hbnb) '
+    class_dict = {
+        "BaseModel": BaseModel,
+        "User": User,
+    }
 
     # Basic command
     def do_quit(self, arg):
