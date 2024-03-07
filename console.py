@@ -2,9 +2,11 @@
 """Console Module"""
 import cmd
 from models.base_model import BaseModel
-import json
-import uuid
-import os
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.amenity import Amenity
 from models import storage
 
 
