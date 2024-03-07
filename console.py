@@ -24,6 +24,7 @@ class HBNBCommand(cmd.Cmd):
         "Review": Review,
     }
     # Basic command
+    
     def do_quit(self, arg):
         'Quit command to exit the program\n'
         return True
