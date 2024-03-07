@@ -44,7 +44,8 @@ bash
 Copy code
 $ ./console.py
 (hbnb) help
-Documented commands (type help <topic>):
+
+**Documented commands (type help <topic>):**
 ========================================
 EOF  all  create  destroy  help  quit  show  update
 To exit the console, type quit or EOF.
@@ -53,16 +54,27 @@ To exit the console, type quit or EOF.
 Here's a list of commands available in the AirBnB clone console:
 
 EOF: Exits the console.
+
 all [class_name]: Displays all objects or all objects of a specific class.
+
 create <class_name>: Creates a new instance of a class.
+
 destroy <class_name> <id>: Deletes an object by its ID.
+
 help [command]: Displays help for the specified command or lists all available commands.
+
 quit: Exits the console.
+
 show <class_name> <id>: Displays an object based on its class name and ID.
-update <class_name> <id> <attribute_name> "<attribute_value>": Updates an attribute of an object.
+
+update <class_name> <id> <attribute_name> 
+
+"<attribute_value>": Updates an attribute of an object.
 
 **Contributing**
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the GitHub repository.
+Kévin Viais <7271@holbertonstudents.com>
+David Hache <7278@holbertonstudents.com>
+Philippe Marclay <6897@holbertonstudents.com>
 
 **License**
 This project is licensed under the MIT License - see the LICENSE file for details.
