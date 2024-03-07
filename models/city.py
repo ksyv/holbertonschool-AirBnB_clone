@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Module that contains class City"""
-form models.base_model import BaseMode1
+from models.base_model import BaseModel
 
 
 class City(BaseModel):
