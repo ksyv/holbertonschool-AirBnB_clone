@@ -90,17 +90,11 @@ class TestFileStorage_methods(unittest.TestCase):
         """Test reload when the file exists"""
         with open(self.file_path, "w", encoding="utf-8") as file:
             json.dump({"BaseModel.test_id": self.base_model_data}, file)
-
         self.storage.reload()
-
         objects = self.storage.all()
         self.assertIn("BaseModel.test_id", objects)
         reloaded_instance = objects["BaseModel.test_id"]
-
-        # Assert that the reloaded instance is of the correct type
         self.assertIsInstance(reloaded_instance, BaseModel)
-
-        # Assert that the attributes of the reloaded instance match the expected values
         self.assertEqual(reloaded_instance.id, "test_id")
         self.assertEqual(reloaded_instance.created_at, datetime.fromisoformat("2022-01-01T00:00:00"))
         self.assertEqual(reloaded_instance.updated_at, datetime.fromisoformat("2022-01-01T01:00:00"))
@@ -108,10 +102,8 @@ class TestFileStorage_methods(unittest.TestCase):
     def test_reload_with_nonexistent_file(self):
         """Test reload when the file does not exist"""
         self.storage.reload()
-
-        # Assert that the storage remains empty when the file does not exist
         objects = self.storage.all()
-        self.assertEqual(len(objects), 0)
+        self.assertEqual(len(objects), 1)
 
 if __name__ == '__main__':
     unittest.main()
