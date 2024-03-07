@@ -14,7 +14,15 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     """Console class"""
     prompt = '(hbnb) '
-
+    class_dict = {
+        "BaseModel": BaseModel,
+        "User": User,
+        "State": State,
+        "City": City,
+        "Amenity": Amenity,
+        "Place": Place,
+        "Review": Review,
+    }
     # Basic command
     def do_quit(self, arg):
         'Quit command to exit the program\n'
