@@ -8,7 +8,6 @@ import os
 from models import storage
 
 
-
 class HBNBCommand(cmd.Cmd):
     """Console class"""
     prompt = '(hbnb) '
