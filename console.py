@@ -6,6 +6,7 @@ import json
 import uuid
 import os
 from models import storage
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
