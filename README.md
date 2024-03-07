@@ -4,7 +4,6 @@ This project is a command-line interface (CLI) implementation of an AirBnB clone
 The project aims to replicate some of the functionality of the popular AirBnB website.
 
 ![alt text](https://github.com/ksyv/holbertonschool-AirBnB_clone/blob/ff7c5e5f4d3eeb28306d064a98646ae55c80f48c/location-airbnb.jpg)
-<img src="https://github.com/ksyv/holbertonschool-AirBnB_clone/blob/ff7c5e5f4d3eeb28306d064a98646ae55c80f48c/location-airbnb.jpg" alt="AirBnB Location" width="400" height="300">
 
 **Table of Contents**
 Introduction
