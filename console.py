@@ -116,23 +116,23 @@ class HBNBCommand(cmd.Cmd):
         elif len(args) == 3:
             print("** value missing **")
 
-        if len(args) == 4:
-            obj = dict_object["{}.{}".format(args[0], args[1])]
-            if args[2] in obj.__class__.__dict__.keys():
-                value_type = type(obj.__class__.__dict__[args[2]])
-                obj.__dict__[args[2]] = value_type(args[3])
+        else:
+            class_name = args[0]
+            instance_id = args[1]
+            attribute_name = args[2]
+            attribute_value = args[3]
+            key = f"{class_name}.{instance_id}"
+            if key not in dict_object:
+                print("** no instances found **")
             else:
-                obj.__dict__[args[2]] = args[3]
-        elif type(eval(args[2])) == dict:
-            obj = dict_object["{}.{}".format(args[0], args[1])]
-            for key, value in eval(args[2]).items():
-                if (key in obj.__class__.__dict__.keys() and
-                        type(obj.__class__.__dict__[key]) in {str, int,
-                                                              float}):
-                    valtype = type(obj.__class__.__dict__[key])
-                    obj.__dict__[key] = valtype(value)
-                else:
-                    obj.__dict__[key] = value
+                if attribute_name not in ['id', 'created_at', 'updated_at']:
+                    if hasattr(dict_object[key], attribute_name):
+                        existing_type = type(
+                            getattr(dict_object[key], attribute_name))
+                        if existing_type in [int, float, str]:
+                            attribute_value = existing_type(attribute_value)
+                setattr(dict_object[key], attribute_name, attribute_value)
+                storage.save()
         storage.save()
 
 
