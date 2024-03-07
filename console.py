@@ -79,6 +79,9 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         'Prints all string representation of all instances'
         args = arg.split()
+        if len(args) == 0:
+            print("** class name missing **")
+            return
         if args[0] not in globals() and len(arg) > 0:
             print("** class doesn't exist **")
             return
