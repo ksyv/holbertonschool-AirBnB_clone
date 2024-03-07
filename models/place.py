@@ -6,7 +6,7 @@ Place module
 from models.base_model import BaseModel
 
 
-class Place(BaseModel1):
+class Place(BaseModel):
     """
     Defines attributes/methods for the Place class, subclass of BasModel
     Other attributes/methods are inherited from BaseModel
