@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Module that contains class User"""
-from model.base_model import BaseMdel
+from models.base_model import BaseModel
 
 
-class State(BaseMdoel):
+class State(BaseModel):
     """Class state instance"""
     name = ""
